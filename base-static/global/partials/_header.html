@@ -1,0 +1,16 @@
+<header class="header-content">
+    
+    <h1 ><a href="{% url 'contact:index' %}">Agenda</a></h1>
+    <p><a href="{% url 'contact:create'%}">create</a></p>
+    
+    <div class="search">
+        <form action="{% url 'contact:search'%}">
+            <input type="search" 
+            name="q" 
+            id="id_search"
+            placeholder="Search ..."
+            value="{{request.GET.q.strip}}"
+            class="search-input">
+        </form>    
+    </div>
+</header>

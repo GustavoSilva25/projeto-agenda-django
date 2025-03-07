@@ -1,0 +1,29 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="single-contact-content">
+        <h2>{{contact.first_name}} {{contact.last_name}}</h2>
+        <p><b>ID:</b> {{contact.id}}</p>
+        <p><b>Phone:</b> {{contact.phone}}</p>
+        <p><b>Email:</b> {{contact.email}}</p>
+        <p><b>Create At:</b> {{contact.create_at}}</p>
+    
+        <p><b>Description:</b> {{contact.description}}</p>
+        <p><b>Category:</b> {{contact.category.name}}</p>
+
+        <div class="list-link">
+
+            <button class='btn-update'><a href="{% url 'contact:update' contact.id %}" >Update</a></button>
+            
+            <form action="{% url 'contact:delete'  contact.id %}"
+            method="POST">
+            {% csrf_token %}
+            <button type="submit" name="confirm" value='confirm' class='btn-delete'>Delete</button>
+            </form> 
+        </div>
+            
+    </div>
+
+
+
+{% endblock content %}
