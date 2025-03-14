@@ -2,14 +2,18 @@
 
 {% block content %}
     <div class="single-contact-content">
+        {% if contact.picture %}
+            <img src="{{contact.picture.url}}" alt="image preview">
+        {% endif %}
         <h2>{{contact.first_name}} {{contact.last_name}}</h2>
         <p><b>ID:</b> {{contact.id}}</p>
         <p><b>Phone:</b> {{contact.phone}}</p>
         <p><b>Email:</b> {{contact.email}}</p>
         <p><b>Create At:</b> {{contact.create_at}}</p>
-    
+        
         <p><b>Description:</b> {{contact.description}}</p>
         <p><b>Category:</b> {{contact.category.name}}</p>
+        
 
         <div class="list-link">
 

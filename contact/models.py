@@ -30,5 +30,7 @@ class Contact(models.Model):
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True,null=True)
     
 
+
+
     class Meta:
         ordering = ['-id',]

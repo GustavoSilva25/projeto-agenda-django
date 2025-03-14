@@ -1,8 +1,28 @@
 <header class="header-content">
     
+    {% if user.is_authenticated %}
+        <nav class='auth-navigation'>
+            <div class="icon-profile">
+                <a href="{% url 'contact:user_details' %}" class='username'>{{user.first_name|slice:":1"|upper}}{{user.last_name|slice:":1"|upper}}</a>
+            </div>
+        </nav>
+
+    {% else %}
+        <nav class='auth-navigation'>
+            <ul>
+                <li><a href="{% url 'contact:register'%}">Sign up</a></li>
+                <li><a href="{% url 'contact:login' %}">Sign in</a></li>
+            </ul>
+        </nav>
+
+    {% endif %}
+
+
+
+
     <h1 ><a href="{% url 'contact:index' %}">Agenda</a></h1>
     <p><a href="{% url 'contact:create'%}">create</a></p>
-    
+
     <div class="search">
         <form action="{% url 'contact:search'%}">
             <input type="search" 
@@ -11,6 +31,6 @@
             placeholder="Search ..."
             value="{{request.GET.q.strip}}"
             class="search-input">
-        </form>    
+        </form>
     </div>
 </header>

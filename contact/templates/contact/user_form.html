@@ -1,0 +1,29 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+
+<div class="login-wrapper">
+    <h2><a href="{% url 'contact:index' %}">Agenda</a></h2>
+    <div class="login-form-center">
+            <div class="content-form">
+                <form method="POST" 
+                class='style-form'>
+                    {% include "contact/partials/_messages.html" %}
+                    <h2>{{ heading }}</h2>
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{field.label_tag}} {{field}}
+                        {{field.errors}}
+        
+                        {% if field.help_text %}
+                            <p class="help-text">{{field.help_text}}</p>
+                        
+                        {% endif %}
+                    {% endfor %}
+                    <button type="submit">Sign up</button>
+                </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

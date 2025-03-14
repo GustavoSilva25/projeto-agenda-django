@@ -19,6 +19,7 @@ def index(request):
     context = {
         'title': 'agenda',
         'page_obj' : page_obj,
+        'hide_header_footer': True,
     }
 
 
@@ -52,6 +53,7 @@ def search(request):
     context = {
         'title': 'search',
         'page_obj' : page_obj,
+        'hide_header_footer': True,
     }
 
 
@@ -68,6 +70,7 @@ def single_contact(request, contact_id):
     context = {
         'title': f'{contact.first_name} {contact.last_name}',
         'contact' : contact,
+        'hide_header_footer': True,
     }
 
 

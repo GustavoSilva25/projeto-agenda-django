@@ -1,0 +1,19 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="single-contact-content">
+        {% include "contact/partials/_messages.html" %}
+
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <p><b>email: </b>{{user.email}}</p>
+        <p><b>username: </b>{{user.username}}</p>
+
+        <class class="list-link">
+
+            <button class='btn-update'> <a href="{% url 'contact:update_user'%}">update</a></button>
+            <button class='btn-logout'> <a href="{% url 'contact:logout'%}">logout</a></button>
+
+        </class>
+    </div>
+
+{% endblock content %}

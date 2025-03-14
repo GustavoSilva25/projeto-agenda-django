@@ -2,17 +2,30 @@
 
 {% block content %}
     <div class="content-form">
-        <form method="POST" class='style-form'>
+        <form method="POST" 
+        enctype="multipart/form-data"
+        class='style-form'>
             <h2>Create Contact</h2>
             {% csrf_token %}
             {% for field in form %}
+
                 {{field.label_tag}} {{field}}
+
+                {% if field.help_text %}
+                    <p class="help-text">{{field.help_text}}</p>
+                {% endif %}
+
                 {% if field.errors %}
                     <div class="error-messages">
                         {% for error in field.errors %}
                             <p>{{ error }}</p>
                         {% endfor %}
                     </div>
+
+                    {% if field.name == "picture" and field.value.url %}
+                        <img src="{{field.value.url}}" alt="image preview">
+                        <p>image</p>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
             <button type="submit">Send</button>

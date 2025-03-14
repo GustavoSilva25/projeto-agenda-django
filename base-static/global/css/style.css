@@ -11,6 +11,26 @@ html, body {
     flex-grow: 1;
 }
 
+.icon-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1c3547;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon-profile .username {
+    font-size: 24px;
+    color: #fff;
+
+    text-decoration: none;
+}
+
 .header-content {
     display: block;
     width: 100%;
@@ -18,6 +38,27 @@ html, body {
     padding: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.auth-navigation {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 0 30px;
+    padding:0 20px;
+    list-style: none;
+}
+
+.auth-navigation  li{
+    display: inline-block;
+    padding: 3px;
+    border : 1px solid #3498db;
+}	
+
+.auth-navigation  li:hover{
+    background-color: rgba(41, 128, 185,0.5);
+    color: #fff;
+}	
+
 
 .header-content h1 {
     text-align: center;
@@ -119,6 +160,23 @@ html, body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.single-contact-content h2 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+
+.single-contact-content img {
+    float: right;
+    width: 38%;
+    height: auto;
+    max-height: 300px;
+    margin: 20px;
+    max-width: 200px;
+    vertical-align: top;
+}
+
+
 .list-link {
     display: flex;
     gap: 10px;
@@ -128,7 +186,7 @@ html, body {
 
 }
 
-.list-link .btn-update a {
+.list-link .btn-update a, .list-link .btn-logout a {
     text-decoration: none;
     color: #fff;
 }
@@ -152,11 +210,20 @@ html, body {
 
 }
 
+.list-link .btn-logout {
+    padding: 7px;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+    border:none;
+
+}
+
 .list-link .btn-update:hover{
     background-color: rgb(27, 73, 27);
 }
 
-.list-link .btn-delete:hover{
+.list-link .btn-delete:hover, .list-link .btn-logout:hover{
     background-color: rgb(151, 44, 25);
 }
 
@@ -192,7 +259,7 @@ html, body {
     margin-top: 4px;
 }
 
-.style-form input[type='text'], input[type='email'], textarea {
+.style-form input[type='text'], input[type='email'], input[type='password'], textarea {
     display: inline-block;
     width: 100%;
     padding: 10px;
@@ -215,13 +282,26 @@ html, body {
 
 
 
-
-
 .error-messages p {
-    color: red;
     font-size: 12px;
     margin-top: 3px;
 }
+
+.message-success {
+    color: #fff;
+    background-color: rgba(42, 151, 42, 0.7);
+    border: 1px solid rgb(49, 175, 49);
+}
+
+.messsage-error {
+    color: #fff;
+    background-color: rgba(255, 40, 2, 0.7);
+    border: 1px solid rgb(241, 36, 0);
+}
+
+
+
+
 
 .style-form button {
     display: inline-block;
@@ -233,6 +313,64 @@ html, body {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.login-wrapper {
+    background: linear-gradient(135deg, #1a2634, #1e4d6b);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.login-wrapper h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    margin: 0;
+}
+
+.login-wrapper a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+.login-form-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+.message {
+    padding: 18px 0;
+    text-align: center;
+
+    border-radius: 5px;
+    margin: 5px 0;
+
+}
+
+.message-error {
+    color: #fff;
+    background-color: rgba(255, 40, 2, 0.7);
+    border: 1px solid rgb(241, 36, 0);
+}
+
+
+
+.help-text li, ul, p{
+    list-style: none;
+    margin: 3px 0;
+    padding: 0;
+    font-size: 13px;
+    color: #888;
+
+}
+
+
+
+
 
 
 footer {

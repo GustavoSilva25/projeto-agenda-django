@@ -5,7 +5,7 @@ from contact.models import Contact
 def create(request):
 
     if request.method == "POST":
-        form = ContactForm(request.POST,request.FILES)
+        form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
     else:
@@ -14,6 +14,7 @@ def create(request):
     context = {
         'form': form,
         'title': 'Create contact',
+        'hide_header_footer': True,
     }
 
     return render(
@@ -37,6 +38,7 @@ def update(request, contact_id):
     context = {
         'title': 'Update',
         'form': form,
+        'hide_header_footer': True,
     }
 
     return render(
@@ -62,6 +64,7 @@ def delete(request, contact_id):
     context = {
         'confirm': confirm_delete,
         'contact': contact,
+        'hide_header_footer': True,
     }
 
     return render(
