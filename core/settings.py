@@ -20,7 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+os)&y9g3d!gh%b66pl5oi^e5-cvsdvz1(l8$jx97#l&ufpf)^'
+SECRET_KEY = (
+    'django-insecure-+os)&y9g3d!gh%b66pl5oi^e5-cvsdvz1(l8$jx97#l&ufpf)^'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,9 +57,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'base-static'
-        ],
+        'DIRS': [BASE_DIR / 'base-static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,14 +120,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'base-static'
-]
+STATICFILES_DIRS = [BASE_DIR / 'base-static']
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media' 
+MEDIA_ROOT = BASE_DIR / 'media'
 
-STATIC_ROOT = BASE_DIR / 'static' #configuração para o collectstatic
+STATIC_ROOT = BASE_DIR / 'static'   # configuração para o collectstatic
 
 
 # Default primary key field type

@@ -6,6 +6,9 @@
                 <a href="{% url 'contact:user_details' %}" class='username'>{{user.first_name|slice:":1"|upper}}{{user.last_name|slice:":1"|upper}}</a>
             </div>
         </nav>
+        <h1 ><a href="{% url 'contact:index' %}">Agenda</a></h1>
+        <p><a href="{% url 'contact:create'%}">create</a></p>
+
 
     {% else %}
         <nav class='auth-navigation'>
@@ -15,13 +18,10 @@
             </ul>
         </nav>
 
+        <h1 ><a href="{% url 'contact:index' %}">Agenda</a></h1>
     {% endif %}
-
-
-
-
-    <h1 ><a href="{% url 'contact:index' %}">Agenda</a></h1>
-    <p><a href="{% url 'contact:create'%}">create</a></p>
+    
+    
 
     <div class="search">
         <form action="{% url 'contact:search'%}">

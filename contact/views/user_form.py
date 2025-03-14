@@ -5,7 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from contact.form import UserForm, UserUpdateForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth import update_session_auth_hash
-
+from django.contrib.auth.decorators import login_required
 
 
 def register(request):
@@ -16,16 +16,14 @@ def register(request):
         if form.is_valid():
             form.save()
             auth.login(request, form.instance)
-            messages.success(request, "Registration successful")
+            messages.success(request, 'Registration successful')
             return redirect('contact:index')
         else:
-            messages.error(request, "Error in registration")
-    
+            messages.error(request, 'Error in registration')
 
     context = {
         'heading': 'Sign up',
         'form': form,
-
     }
     return render(
         request,
@@ -34,16 +32,20 @@ def register(request):
     )
 
 
+@login_required(login_url='contact:login')
 def user_details(request):
     return render(
         request,
         'contact/profile_details.html',
-        context={'hide_header_footer': True,}
+        context={
+            'hide_header_footer': True,
+        },
     )
+
 
 def login(request):
 
-    if request.method == "POST":
+    if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
 
         if form.is_valid():
@@ -51,14 +53,13 @@ def login(request):
             auth.login(request, user)
             return redirect('contact:index')
         else:
-            messages.error(request, "Error!")
+            messages.error(request, 'Error!')
 
     form = AuthenticationForm()
 
     context = {
         'heading': 'Sign in',
         'form': form,
-
     }
     return render(
         request,
@@ -66,11 +67,14 @@ def login(request):
         context,
     )
 
+
+@login_required(login_url='contact:login')
 def logout(request):
     auth.logout(request)
     return redirect('contact:index')
 
 
+@login_required(login_url='contact:login')
 def update_user(request):
 
     form = UserUpdateForm(instance=request.user)
@@ -80,12 +84,11 @@ def update_user(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, request.user)
-            messages.success(request, "Update user success!")
+            messages.success(request, 'Update user success!')
             return redirect('contact:user_details')
 
         else:
-            messages.error(request, "error")
-
+            messages.error(request, 'error')
 
     context = {
         'heading': 'Update user',
