@@ -25,16 +25,14 @@ Cada contato é associado ao usuário que o criou, permitindo que apenas o propr
 - Django
 - MySQL
 - Ambiente Virtual (recomendado)
-
-
-
+- 
 ## Passos para Execução Local 
 
 1. **Clone o Repositório:**
 
    ```bash
-   git clone https://github.com/seu_usuario/nome_do_repositorio.git
-   cd nome_do_repositorio
+   git clone https://github.com/GustavoSilva25/projeto-agenda-django.git
+   cd projeto-agenda-django
 
 2. **Crie e Ative um Anbiente Virtual**
    ```bash
@@ -58,7 +56,6 @@ Cada contato é associado ao usuário que o criou, permitindo que apenas o propr
      ```bash
      python manage.py createsuperuser
      ```
-
      Siga as instruções fornecidas no terminal para definir o nome de usuário, e-mail e senha.
 
 6. **Início do Servidor de Desenvolvimento:**
@@ -66,7 +63,6 @@ Cada contato é associado ao usuário que o criou, permitindo que apenas o propr
      ```bash
      python manage.py runserver
      ```
-
 
 ## Contribuição
 
