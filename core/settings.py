@@ -132,3 +132,10 @@ STATIC_ROOT = BASE_DIR / 'static'   # configuração para o collectstatic
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+try:
+    from local_settings import *
+
+except Exception:
+    ...
